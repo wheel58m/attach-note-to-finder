@@ -9,5 +9,15 @@ on chooseNote()
 		else
 			set accountName to name of account 1
 		end if
+
+		# Select a Folder If Any
+		tell account accountName
+			if (count of folders) is not 0 then
+				set folderNames to name of folders
+				set folderName to (choose from list folderNames) as string
+			else
+				
+			end if
+		end tell
 	end tell
 end chooseNote
