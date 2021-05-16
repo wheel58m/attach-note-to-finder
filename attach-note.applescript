@@ -15,8 +15,21 @@ on chooseNote()
 			if (count of folders) is not 0 then
 				set folderNames to name of folders
 				set folderName to (choose from list folderNames) as string
+
+				# Handle Subfolders
+				set thisFolder to ""
+				repeat while thisFolder = ""
+					tell folder folderName
+						if (count of folders) is not 0 then
+							set folderNames to name of folders
+							set folderName to (choose from list folderNames) as string
+						else
+							set thisFolder to folderName
+						end if
+					end tell
+				end repeat
 			else
-				
+
 			end if
 		end tell
 	end tell
