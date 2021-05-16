@@ -28,8 +28,16 @@ on chooseNote()
 						end if
 					end tell
 				end repeat
-			else
 
+				# Select Note From Folder
+				tell folder thisFolder
+					set noteNames to name of notes
+					set noteName to (choose from list noteNames) as string
+				end tell
+			else
+				# Select Note From Account
+				set noteNames to name of notes
+				set noteName to (choose from list noteNames) as string
 			end if
 		end tell
 	end tell
